@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>代金劵</title>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <style>
+      * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 17.7866667rem;
+      width: 10rem;
+      background-color: #fff;
+      font-style: 'MicrosoftYaHei';
+      position: relative;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow: hidden;
+    }
+
+    .container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      background: url('./images/main.png') no-repeat;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .header {
+      margin-top: 1.4rem;
+    }
+
+    .header__btn {
+      margin-left: 7.56rem;
+      padding: .1866667rem .44rem;
+      background-color: #FFC405;
+      color: #fff;
+      font-size: .32rem;
+      font-weight: 300;
+      border: 0;
+      -webkit-border-radius: .8rem;
+      -moz-border-radius: .8rem;
+      border-radius: .8rem;
+      margin-bottom: 4.50666667rem;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    .content img {
+      width: 8.4rem;
+      height: 2.6666667rem;
+    }
+
+    .footer {
+      margin-top: .72rem;
+      text-align: center;
+    }
+
+    .footer .footer__title {
+      font-size: .48rem;
+      color: #fff;
+      font-weight: 300;
+      margin-bottom: .3733333rem;
+    }
+
+    .footer .footer__title-desc {
+      text-align: center;
+      width: 7.5133333rem;
+      height: .92rem;
+      padding: .1rem .54666667rem;
+      background-color: rgba(0, 0, 0, .3);
+      color: #fff;
+      margin: 0 auto;
+      -webkit-border-radius: .42333333rem;
+      -moz-border-radius: .42333333rem;
+      border-radius: .42333333rem;
+    }
+
+    .footer .footer__title-desc span {
+      /*padding: .1rem .54666667rem;*/
+      font-size: .2933333rem;
+      font-weight: 300;
+    }
+
+    .footer .footer__desc {
+      font-size: .3466667rem;
+      margin-top: .4666667rem;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .footer .footer__desc2 {
+      font-size: .3466667rem;
+      margin-top: .2666667rem;
+      color: #fff;
+      font-weight: 300;
+      margin-bottom: .586666rem;
+    }
+
+    .footer .footer__btn {
+      background-color: #FDD029;
+      border: 0;
+      font-size: .533333rem;
+      padding: .30666667em .74666667rem;
+      color: #fff;
+      font-weight: 300;
+      -webkit-border-radius: .6rem;
+      -moz-border-radius: .6rem;
+      border-radius: .6rem;
+    }
+
+    .mask-rules,
+    .mask-use {
+      display: none;
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(1, 1, 1, .8);
+    }
+
+    .mask-rules .card {
+      margin-top: 4.23333rem;
+      width: 7.0666667rem;
+      position: relative;
+      margin-left: 1.426667rem;
+    }
+
+    .mask-rules .card .card-content {
+      width: 100%;
+      background-color: #fff;
+      height: 9.7666667rem;
+      -webkit-border-radius: .6rem;
+      -moz-border-radius: .6rem;
+      border-radius: .4rem;
+    }
+
+    .mask-rules .card-content p {
+      font-size: .4rem;
+      padding: 1.2rem .4rem .6rem .4rem;
+    }
+
+    .card .card-footer--close {
+      height: 3.6rem;
+      width: 100%;
+      line-height: 3.2rem;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .icon-close {
+      width: .96rem;
+      height: .96rem;
+    }
+
+    .rules-title {
+      position: absolute;
+      z-index: 9;
+      top: 3.3866666rem;
+      left: 1.5733332rem;
+      width: 6.88rem;
+      height: 2.3466667rem;
+      background: url('./images/rule_03.png') no-repeat;
+      background-size: contain;
+    }
+
+    .mask-use .card {
+      margin-top: 5.83333rem;
+      width: 7.0666667rem;
+      position: relative;
+      margin-left: 1.426667rem;
+    }
+
+    .use-content {
+      width: 100%;
+      height: 3.733333rem;
+      line-height: 5.633333rem;
+      text-align: center;
+      background-color: #fff;
+      color: #333;
+      font-size: .56667rem;
+      border-radius: .5rem .5rem 0 0;
+    }
+
+    .use-btn {
+      width: 100%;
+      height: 1.933333rem;
+      line-height: 1.933333rem;
+      background-color: #FDD029;
+      text-align: center;
+      color: #fff;
+      font-size: .66667rem;
+      border-radius: 0 0 .5rem .5rem;
+    }
+
+    .use-btns {
+      width: 100%;
+      height: 1.633333rem;
+      line-height: 1.633333rem;
+      display: flex;
+      color: #fff;
+      background-color: #fff;
+      font-size: .66667rem;
+      border-radius: 0 0 .5rem .5rem;
+      position: relative;
+    }
+
+    .use-btns button {
+      height: 90%;
+      border: 0;
+      background-color: #FDD029;
+      margin-left: .2rem;
+      border-radius: .5rem;
+      color: #fff;
+      font-size: .56667rem;
+    }
+
+    .use-btns .confirm {
+      flex: 4;
+    }
+
+    .use-btns .quit {
+      flex: 2;
+      margin-right: .2rem;
+    }
+
+    .use-title {
+      position: absolute;
+      z-index: 99;
+      top: 3.9866666rem;
+      left: 1.5733332rem;
+      width: 6.88rem;
+      height: 3.6466667rem;
+      background: url('./images/icecream_03.png') no-repeat;
+      background-size: cover;
+    }
+
+    .share {
+      position: absolute;
+      bottom: -21.55555555rem;
+      left: 0;
+      width: 100%;
+      height: 121%;
+      background-color: rgba(1, 1, 1, .8);
+      z-index: 5;
+      transition: transform 1s ease-in-out;
+    }
+
+    .share-mask {
+      height: 17.7866667rem;
+      width: 100%;
+    }
+
+    .pull-in {
+      transform: translateY(-21.55555555rem)
+    }
+
+    .pull-out {
+      transform: translateY(21.55555555rem)
+    }
+
+    .share-list {
+      width: 100%;
+      height: 11%;
+      list-style: none;
+      display: flex;
+      background-color: #f6f7f9;
+    }
+
+    .share-list li {
+      flex: 1;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .share-list .item-img {
+      margin-top: .366667rem;
+      text-align: center;
+    }
+
+    .share-list div {
+      display: inline-block;
+      width: .6rem;
+      height: .6rem;
+      padding: .1266667rem .2866667rem .3266667rem .1266667rem;
+      background-color: #fff;
+      border-radius: 999px;
+    }
+
+    .share-list p {
+      color: #333;
+      opacity: .6;
+    }
+
+    .share-list .wx .item-img div {
+      background: url('./images/微信.png') no-repeat;
+      background-position: 0rem 0rem;
+      background-size: 80% 80%;
+    }
+
+    .share-list .wxfriends .item-img div {
+      background: url('./images/朋友圈.png') no-repeat;
+      background-position: 0rem 0rem;
+      background-size: 80% 80%;
+    }
+
+    .share-list .qq .item-img div {
+      background: url('./images/QQ.png') no-repeat;
+      background-position: 0rem 0rem;
+      background-size: 80% 80%;
+    }
+
+    .share-list .qzone .item-img div {
+      background: url('./images/qq空间.png') no-repeat;
+      background-position: 0rem 0rem;
+      background-size: 80% 80%;
+    }
+
+    .share-list .weibo .item-img div {
+      background: url('./images/微博.png') no-repeat;
+      background-position: 0rem 0rem;
+      background-size: 80% 80%;
+    }
+
+    .share .quit {
+      background-color: #fff;
+      color: #333;
+      height: 7%;
+      font-size: .5rem;
+      line-height: 1.366666rem;
+      text-align: center;
+    }
+
+    @media (device-height:480px) and (-webkit-min-device-pixel-ratio:2) {
+      /* 兼容iphone4/4s */
+      html,
+      body {
+        height: 100vh;
+        width: 10rem;
+        font-size: 32px !important;
+        background-color: #fff;
+        font-style: 'MicrosoftYaHei';
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        background: url('./images/main.png') no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+      .header {
+        margin-top: .8888888rem;
+        margin-right: .12rem;
+      }
+      .header__btn {
+        margin-left: 7.3rem;
+        margin-bottom: 3.80666667rem;
+      }
+      .footer__title-desc span {
+        display: inline;
+      }
+      .footer {
+        margin-top: 0rem;
+      }
+      .footer .footer__title {
+        margin-bottom: 10px;
+      }
+      .footer .footer__desc2 {
+        margin-bottom: 0;
+      }
+      .footer .footer__title-desc span {
+        font-size: 12px;
+        display: block;
+        padding: 0;
+      }
+      .share {
+        position: absolute;
+        bottom: -21.55555555rem;
+        left: 0;
+        width: 100%;
+        height: 121%;
+        background-color: rgba(1, 1, 1, .8);
+        z-index: 5;
+        transition: transform 1s ease-in-out;
+      }
+
+      .share-mask {
+        height: 14.8866667rem;
+        width: 100%;
+      }
+
+      .pull-in {
+        transform: translateY(-21.55555555rem)
+      }
+
+      .pull-out {
+        transform: translateY(21.55555555rem)
+      }
+
+      .share-list {
+        width: 100%;
+        height: 11%;
+        list-style: none;
+        display: flex;
+        background-color: #f6f7f9;
+      }
+
+      .share-list li {
+        flex: 1;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .share-list p {
+        margin-top: -18px;
+        display: block;
+        font-size: 12px !important;
+        transform: scale(.6);
+      }
+      .mask-rules .card {
+        margin-top: 2.23333rem;
+        width: 7.0666667rem;
+        position: relative;
+        margin-left: 1.426667rem;
+      }
+      .rules-title {
+        top: 1.3866666rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <button class="header__btn">活动规则</button>
+    </header>
+    <div class="content">
+      <img src="./images/card23_03_03.png" alt="">
+    </div>
+    <div class="footer">
+      <h2 class="footer__title">活动规则</h2>
+      <p class="footer__title-desc"><span>请将此页面转发给好友，或到店扫描活动物料二维码 出示给店员点击确认即可领取</span></p>
+      <p class="footer__desc">兑换时间：自领取日起两周内使用有效</p>
+      <p class="footer__desc2">活动范围：江西省麦当劳餐厅主柜台</p>
+      <button class="footer__btn">喊TA来领</button>
+    </div>
+    <div class="mask-rules">
+      <div class="rules-title"></div>
+      <div class="card">
+        <div class="card-content">
+          <p style="word-wrap: break-word;">
+            nfbashjbfkh jabsjkfbaskjbfjkbaskf jbaskjbfkjabsjkfbakjsbfkjbas jkbfkjasbfjkbaskfbjkasbfkjbasfjkbasssjhkja fasfasfasfas
+          </p>
+        </div>
+        <div class="card-footer--close">
+          <p><span id="close"><img src="./images/close.png" class="icon-close"></img></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="mask-use used">
+      <div class="use-title"></div>
+      <div class="card">
+        <div class="card-content">
+          <div class="use-content">
+            恭喜！兑换成功
+          </div>
+          <div class="use-btn">
+            确定
+          </div>
+        </div>
+        <div class="card-footer--close">
+          <p><span id="close"><img src="./images/close.png" class="icon-close"></img></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="mask-use using">
+      <div class="use-title"></div>
+      <div class="card">
+        <div class="card-content">
+          <div class="use-content">
+            那么大圆筒5折券一张
+          </div>
+          <div class="use-btns">
+            <button class="confirm">店员点击确认</button>
+            <button class="quit">取消</button>
+          </div>
+        </div>
+        <div class="card-footer--close">
+          <p><span id="close"><img src="./images/close.png" class="icon-close"></img></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="share">
+    <div class="share-mask"></div>
+    <ul class="share-list">
+      <li class="wx">
+        <div class="item-img">
+          <div></div>
+        </div>
+        <p>微信朋友圈</p>
+      </li>
+      <li class="wxfriends">
+        <div class="item-img">
+          <div></div>
+        </div>
+        <p>微信好友</p>
+      </li>
+      <li class="qq">
+        <div class="item-img">
+          <div></div>
+        </div>
+        <p>手机qq</p>
+      </li>
+      <li class="qzone">
+        <div class="item-img">
+          <div></div>
+        </div>
+        <p>qq空间</p>
+      </li>
+      <li class="weibo">
+        <div class="item-img">
+          <div></div>
+        </div>
+        <p>微博</p>
+      </li>
+    </ul>
+    <div class="quit">取消</div>
+  </div>
+  <script>
+    var RuleClose = document.querySelector('#close'),
+      oQuit = document.querySelector('.using .quit'),
+      HeaderBtn = document.querySelector('.header__btn'),
+      oConfirm = document.querySelector('.using .confirm'),
+      UseClose = document.querySelector('.using #close'),
+      usedBtn = document.querySelector('.used .use-btn'),
+      usedClose = document.querySelector('.used #close'),
+      footerBtn = document.querySelector('.footer__btn')
+
+    RuleMask = document.querySelector('.mask-rules'),
+      oContent = document.querySelector('.content'),
+      oUser = document.querySelector('.using'),
+      oUsed = document.querySelector('.used')
+
+
+    RuleClose.addEventListener('click', function () {
+      RuleMask.style.display = 'none';
+    })
+    HeaderBtn.addEventListener('click', function () {
+      RuleMask.style.display = 'block';
+    })
+    oContent.addEventListener('click', function () {
+      oUser.style.display = 'block';
+    })
+    oConfirm.addEventListener('click', function () {
+      oUser.style.display = 'none';
+      oUsed.style.display = 'block';
+    })
+    oQuit.addEventListener('click', function () {
+      oUser.style.display = 'none';
+    })
+    UseClose.addEventListener('click', function () {
+      oUser.style.display = 'none';
+    })
+    usedBtn.addEventListener('click', function () {
+      oUsed.style.display = 'none';
+    })
+    usedClose.addEventListener('click', function () {
+      oUsed.style.display = 'none';
+    })
+    footerBtn.addEventListener('click', function () {
+      if (document.querySelector('.share').classList.contains('pull-out')) {
+        document.querySelector('.share').classList.remove('pull-out');
+      }
+      document.querySelector('.share').classList.add('pull-in');
+    })
+    document.querySelector('.share .quit').addEventListener('click', function () {
+      document.querySelector('.share').classList.add('pull-out');
+    })
+  </script>
+</body>
+
+</html>

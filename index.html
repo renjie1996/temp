@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>弹出</title>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a,
+    span {
+      text-decoration: none;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a:active {
+      text-decoration: none;
+    }
+
+    a:visited {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    html,
+    body {
+      height: 17.7866667rem;
+      width: 10rem;
+      background-color: #fff;
+      font-style: 'MicrosoftYaHei';
+      position: relative;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      overflow: hidden;
+    }
+
+    .container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+    .mark {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(1, 1, 1, .1);
+    }
+
+    .card {
+      margin-top: 3.28rem;
+      width: 9.0666667rem;
+      position: relative;
+      margin-left: .48rem;
+    }
+
+    .card .card-header--img {
+      border-radius: .233333rem .233333rem 0 0;
+      height: 3.6533333rem;
+      width: 100%;
+      background: url('./images/mobike_into_03.png') no-repeat;
+      background-position: 0 0;
+      background-size: cover;
+    }
+
+    .card .card-content--desc {
+      height: 4.08rem;
+      width: 100%;
+      background-color: #fff;
+      text-align: center;
+      border-radius: 0 0 .233333rem .233333rem;
+    }
+
+    .card .card-content--desc h2 {
+      /*margin-top: 1.6rem;*/
+      line-height: 2.333333rem;
+      font-size: .533333rem;
+      font-weight: 300;
+    }
+
+    .card .card-content--desc span {
+      font-size: .34666667rem;
+      line-height: .64rem;
+      padding: .3066667rem 0.84rem;
+      color: #dd5340;
+      border: 1px solid #dd5340;
+    }
+
+    .card .card-footer--close {
+      height: 3.6rem;
+      width: 100%;
+      line-height: 3.6rem;
+      text-align: center;
+    }
+
+    .icon-close {
+      width: .96rem;
+      height: .96rem;
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+      select:focus,
+      textarea:focus,
+      input:focus {
+        font-size: 16px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mark">
+      <div class="card">
+        <div class="card-header--img"></div>
+        <div class="card-content--desc">
+          <h2>那么大圆筒，半价抢</h2>
+          <a href="./home.html"><span id="enter">还不快点我</span></a>
+        </div>
+        <div class="card-footer--close">
+          <p><span id="close"><img src="./images/close.png" class="icon-close"></img></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('#close').addEventListener('click', function () {
+      document.querySelector('.mark').style.display = 'none';
+    })
+  </script>
+</body>
+
+</html>
